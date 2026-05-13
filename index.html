@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="en" style="background:#060d18;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Beneath The Surface — Quote</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+background-color: #060d18 !important;
+background: #060d18 !important;
+color: rgba(255,255,255,0.9);
+font-family: ‘Montserrat’, Arial, sans-serif;
+min-height: 100vh;
+}
+
+.wrap { max-width: 480px; margin: 0 auto; padding: 0 16px 48px; background-color: #060d18; }
+
+/* HEADER */
+.hdr {
+background-color: #0d1b2e;
+padding: 32px 24px 28px;
+margin-bottom: 0;
+border-bottom: 1px solid rgba(212,175,55,0.4);
+}
+.brand {
+font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-size: 26px;
+font-weight: 600;
+letter-spacing: 2px;
+color: #d4af37;
+}
+.brand-sub {
+font-size: 9px;
+letter-spacing: 4px;
+color: rgba(180,210,240,0.6);
+text-transform: uppercase;
+margin-top: 4px;
+}
+.hdr-title {
+margin-top: 14px;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: rgba(180,210,240,0.5);
+}
+
+/* SECTION */
+.sec {
+margin-top: 20px;
+background-color: #0d1b2e;
+border: 1px solid rgba(212,175,55,0.25);
+border-radius: 10px;
+overflow: hidden;
+}
+.sec-head {
+padding: 12px 16px;
+border-bottom: 1px solid rgba(212,175,55,0.2);
+display: flex;
+align-items: center;
+gap: 10px;
+background-color: #0a1520;
+}
+.sec-icon {
+font-size: 16px;
+}
+.sec-title {
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #d4af37;
+}
+.sec-body {
+padding: 16px;
+display: flex;
+flex-direction: column;
+gap: 16px;
+background-color: #0d1b2e;
+}
+
+/* SERVICE ROW */
+.svc-label {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 6px;
+}
+.svc-name {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 1px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.8);
+}
+.svc-rate {
+font-size: 10px;
+color: rgba(212,175,55,0.55);
+}
+.input-row {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.qty-input {
+flex: 1;
+background-color: rgba(255,255,255,0.07);
+border: 1px solid rgba(212,175,55,0.25);
+border-radius: 8px;
+padding: 12px 14px;
+color: #ffffff;
+font-family: ‘Montserrat’, Arial, sans-serif;
+font-size: 16px;
+font-weight: 500;
+outline: none;
+-webkit-appearance: none;
+appearance: none;
+}
+.qty-input:focus {
+border-color: rgba(212,175,55,0.55);
+background-color: rgba(212,175,55,0.05);
+}
+.qty-input::placeholder { color: rgba(255,255,255,0.2); font-size:13px; }
+.unit {
+font-size: 10px;
+letter-spacing: 1px;
+color: rgba(180,210,240,0.5);
+text-transform: uppercase;
+min-width: 38px;
+text-align: right;
+}
+
+/* ADDON INFO */
+.addon-intro {
+font-size: 10.5px;
+color: rgba(180,210,240,0.55);
+line-height: 1.6;
+margin-bottom: 4px;
+}
+.addon-list {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.addon-item {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+padding: 10px 12px;
+background-color: rgba(255,255,255,0.03);
+border: 1px solid rgba(212,175,55,0.1);
+border-radius: 8px;
+}
+.addon-icon { font-size: 15px; flex-shrink:0; margin-top:1px; }
+.addon-name { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.85); }
+.addon-desc { font-size: 10px; color: rgba(180,210,240,0.5); margin-top: 2px; line-height:1.5; }
+.addon-note {
+text-align: center;
+font-size: 9.5px;
+color: rgba(212,175,55,0.45);
+margin-top: 10px;
+letter-spacing: 0.5px;
+}
+
+/* QUOTE */
+.quote-card {
+margin-top: 20px;
+background-color: #060f1c;
+border: 1px solid rgba(212,175,55,0.35);
+border-radius: 10px;
+padding: 22px 18px;
+text-align: center;
+}
+.q-label {
+font-size: 9px;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: rgba(180,210,240,0.5);
+margin-bottom: 8px;
+}
+.q-range {
+font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-size: 40px;
+font-weight: 600;
+color: #d4af37;
+line-height: 1;
+}
+.q-range.empty {
+font-size: 18px;
+color: rgba(180,210,240,0.4);
+font-family: ‘Montserrat’, Arial, sans-serif;
+font-weight: 400;
+letter-spacing: 1px;
+}
+.q-sub {
+font-size: 10px;
+color: rgba(180,210,240,0.45);
+margin-top: 6px;
+letter-spacing: 1px;
+}
+.q-divider {
+height: 1px;
+background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+margin: 16px 0;
+}
+.breakdown { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.brow {
+display: flex;
+justify-content: space-between;
+font-size: 11px;
+color: rgba(180,210,240,0.55);
+}
+.brow .val { color: rgba(255,255,255,0.85); font-weight: 500; }
+.min-note {
+margin-top: 10px;
+font-size: 9.5px;
+color: rgba(212,175,55,0.5);
+text-align: center;
+}
+
+/* DISCLAIMER */
+.disclaimer {
+margin-top: 16px;
+padding: 12px 14px;
+background-color: rgba(212,175,55,0.04);
+border: 1px solid rgba(212,175,55,0.12);
+border-radius: 8px;
+font-size: 9.5px;
+line-height: 1.65;
+color: rgba(180,210,240,0.5);
+text-align: center;
+}
+.disclaimer strong { color: rgba(212,175,55,0.7); }
+
+/* CTA */
+.cta {
+display: block;
+width: 100%;
+margin-top: 14px;
+padding: 16px;
+border-radius: 10px;
+border: none;
+background-color: #d4af37;
+color: #060d18;
+font-family: ‘Montserrat’, Arial, sans-serif;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+cursor: pointer;
+}
+.cta:active { opacity: 0.8; }
+
+.contact {
+margin-top: 12px;
+text-align: center;
+}
+.contact a {
+display: block;
+color: rgba(180,210,240,0.45);
+font-size: 11px;
+letter-spacing: 1px;
+text-decoration: none;
+margin-bottom: 4px;
+}
+</style>
+
+</head>
+<body>
+
+<div style="background-color:#060d18; min-height:100vh;">
+<div class="wrap">
+
+  <div class="hdr">
+    <div class="brand">Beneath The Surface</div>
+    <div class="brand-sub">Pressure Washing &amp; Surface Restoration</div>
+    <div class="hdr-title">Instant Quote Estimator</div>
+  </div>
+
+  <!-- SURFACES -->
+
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-icon">🏠</span>
+      <span class="sec-title">Surface Areas</span>
+    </div>
+    <div class="sec-body">
+
+```
+  <div>
+    <div class="svc-label">
+      <span class="svc-name">Concrete / Driveway / Sidewalk</span>
+      <span class="svc-rate">~$0.17–0.21 / sq ft</span>
+    </div>
+    <div class="input-row">
+      <input class="qty-input" type="number" id="concrete" placeholder="0" min="0" inputmode="numeric" oninput="calc()">
+      <span class="unit">sq ft</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="svc-label">
+      <span class="svc-name">House Siding</span>
+      <span class="svc-rate">~$0.23–0.30 / sq ft</span>
+    </div>
+    <div class="input-row">
+      <input class="qty-input" type="number" id="siding" placeholder="0" min="0" inputmode="numeric" oninput="calc()">
+      <span class="unit">sq ft</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="svc-label">
+      <span class="svc-name">Wood Deck / Fence</span>
+      <span class="svc-rate">~$0.28–0.37 / sq ft</span>
+    </div>
+    <div class="input-row">
+      <input class="qty-input" type="number" id="deck" placeholder="0" min="0" inputmode="numeric" oninput="calc()">
+      <span class="unit">sq ft</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="svc-label">
+      <span class="svc-name">Roof</span>
+      <span class="svc-rate">~$0.21–0.28 / sq ft</span>
+    </div>
+    <div class="input-row">
+      <input class="qty-input" type="number" id="roof" placeholder="0" min="0" inputmode="numeric" oninput="calc()">
+      <span class="unit">sq ft</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="svc-label">
+      <span class="svc-name">Gutters</span>
+      <span class="svc-rate">~$1.20–1.65 / lin ft</span>
+    </div>
+    <div class="input-row">
+      <input class="qty-input" type="number" id="gutters" placeholder="0" min="0" inputmode="numeric" oninput="calc()">
+      <span class="unit">lin ft</span>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- ADDITIONAL CHARGES -->
+
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-icon">⚠️</span>
+      <span class="sec-title">Additional Charges May Apply</span>
+    </div>
+    <div class="sec-body">
+      <p class="addon-intro">The following services are available and will be quoted separately on-site based on the scope of work required.</p>
+      <div class="addon-list">
+
+```
+    <div class="addon-item">
+      <span class="addon-icon">🍂</span>
+      <div>
+        <div class="addon-name">Debris Removal</div>
+        <div class="addon-desc">Leaves, branches, or loose material in the work area</div>
+      </div>
+    </div>
+
+    <div class="addon-item">
+      <span class="addon-icon">🌿</span>
+      <div>
+        <div class="addon-name">Overgrowth / Bush Clearance</div>
+        <div class="addon-desc">Vegetation obstructing access to surfaces</div>
+      </div>
+    </div>
+
+    <div class="addon-item">
+      <span class="addon-icon">🪑</span>
+      <div>
+        <div class="addon-name">Furniture &amp; Object Moving</div>
+        <div class="addon-desc">Patio furniture, vehicles, or items blocking work area</div>
+      </div>
+    </div>
+
+    <div class="addon-item">
+      <span class="addon-icon">📐</span>
+      <div>
+        <div class="addon-name">Difficult Access</div>
+        <div class="addon-desc">Steep inclines, confined spaces, or limited equipment access</div>
+      </div>
+    </div>
+
+    <div class="addon-item">
+      <span class="addon-icon">🔴</span>
+      <div>
+        <div class="addon-name">Rust / Oil Stain Treatment</div>
+        <div class="addon-desc">Specialized pre-treatment for deep or set-in staining</div>
+      </div>
+    </div>
+
+    <div class="addon-item">
+      <span class="addon-icon">🛡️</span>
+      <div>
+        <div class="addon-name">Sealant / Non-Slip Coating</div>
+        <div class="addon-desc">Protective coating after washing — ideal for driveways and walkways</div>
+      </div>
+    </div>
+
+  </div>
+  <p class="addon-note">Pricing for additional services determined on-site</p>
+</div>
+```
+
+  </div>
+
+  <!-- QUOTE -->
+
+  <div class="quote-card">
+    <div class="q-label">Estimated Quote</div>
+    <div class="q-range empty" id="qRange">Enter measurements above</div>
+    <div class="q-sub" id="qSub"></div>
+    <div class="q-divider" id="qDiv" style="display:none"></div>
+    <div class="breakdown" id="qBreak"></div>
+    <div class="min-note" id="qMin" style="display:none">$100 minimum applies to all jobs</div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Subject to On-Site Verification.</strong> This estimate is approximate and based on provided measurements. Final pricing may vary due to inaccurate measurements, undisclosed conditions, or additional work discovered on-site. A confirmed quote will be provided before any work begins.
+  </div>
+
+<button class="cta" onclick="window.location.href='tel:+12563615457'">Book a Visit — (256) 361-5457</button>
+
+  <div class="contact">
+    <a href="mailto:beneaththesurface@gmail.com">beneaththesurface@gmail.com</a>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RATES = {
+  concrete: { low: 0.165, high: 0.21,  label: 'Concrete / Driveway / Sidewalk', unit: 'sq ft' },
+  siding:   { low: 0.23,  high: 0.30,  label: 'House Siding',                   unit: 'sq ft' },
+  deck:     { low: 0.28,  high: 0.37,  label: 'Wood Deck / Fence',              unit: 'sq ft' },
+  roof:     { low: 0.21,  high: 0.28,  label: 'Roof',                           unit: 'sq ft' },
+  gutters:  { low: 1.20,  high: 1.65,  label: 'Gutters',                        unit: 'lin ft' },
+};
+const MIN = 100;
+
+function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+
+function calc() {
+  let lo = 0, hi = 0;
+  const lines = [];
+
+  for (const [id, r] of Object.entries(RATES)) {
+    const v = parseFloat(document.getElementById(id).value) || 0;
+    if (v > 0) {
+      lo += v * r.low;
+      hi += v * r.high;
+      lines.push(`<div class="brow"><span>${r.label} <span style="opacity:0.45;font-size:10px">(${v} ${r.unit})</span></span><span class="val">${fmt(v*r.low)}–${fmt(v*r.high)}</span></div>`);
+    }
+  }
+
+  const rEl = document.getElementById('qRange');
+  const sEl = document.getElementById('qSub');
+  const bEl = document.getElementById('qBreak');
+  const dEl = document.getElementById('qDiv');
+  const mEl = document.getElementById('qMin');
+
+  if (lo === 0) {
+    rEl.className = 'q-range empty';
+    rEl.textContent = 'Enter measurements above';
+    sEl.textContent = '';
+    bEl.innerHTML = '';
+    dEl.style.display = 'none';
+    mEl.style.display = 'none';
+    return;
+  }
+
+  const applyMin = lo < MIN;
+  const dlo = Math.max(lo, MIN);
+  const dhi = Math.max(hi, MIN);
+
+  rEl.className = 'q-range';
+  rEl.textContent = fmt(dlo) + ' – ' + fmt(dhi);
+  sEl.textContent = 'Estimated range · subject to change';
+  dEl.style.display = 'block';
+  mEl.style.display = applyMin ? 'block' : 'none';
+
+  let extra = applyMin ? `<div class="brow" style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(212,175,55,0.12)"><span style="color:rgba(212,175,55,0.6)">Minimum job fee</span><span class="val">${fmt(MIN)}</span></div>` : '';
+  bEl.innerHTML = lines.join('') + extra;
+}
+</script>
+
+</body>
+</html>
